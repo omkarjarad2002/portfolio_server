@@ -7,4 +7,10 @@ router.get("/getallmessages", async (req, res) => {
   return res.status(201).json({ message: data });
 });
 
+router.delete("/deleteMSG/:id", async (req, res) => {
+  console.log(req.params.id);
+  const _id = req.params.id;
+  await Contact.findByIdAndRemove(_id);
+});
+
 module.exports = router;
